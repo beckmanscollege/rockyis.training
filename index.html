@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Your personal training montage</title>
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- Man kan skriva sin css inom style nedan-->
+    <style></style>
+  </head>
+
+  <body>
+    <div id="gameplay">
+      <!-- The video -->
+      <video autoplay muted loop id="rocky" class="full-video">
+        <source
+          src="https://cdn.glitch.com/fa23b9c2-b441-4efe-ae9c-8f9c674567b8%2Frocky_background.mp4?v=1617895123492"
+          type="video/mp4"
+        />
+      </video>
+      <!--> FÖR ATT FÅ SAKER ATT LIGGA FRAMFÖR VIDEON! -->
+      <div class="content">
+        <span id="countdown"></span>
+        <p id="info">
+          Press <span class="red">x</span> 15 times before the time is up!
+        </p>
+
+        <p id="counter"></p>
+      </div>
+
+      <button>x</button>
+    </div>
+    <!-- HÄR TAR DIV GAMEPLAY SLUT!!-->
+
+    <div id="results-win">
+      <!-- The video -->
+      <video autoplay muted loop id="rocky-result" class="full-video">
+        <source
+          src="https://cdn.glitch.com/d4be2454-678a-4f51-b4bd-b799dd6a4907%2Frocky_winning_backgr.mp4?v=1618311562342"
+          type="video/mp4"
+        />
+      </video>
+      <div class="content">
+        <video autoplay="true" id="webcam"></video>
+        <img
+          src="https://cdn.glitch.com/d4be2454-678a-4f51-b4bd-b799dd6a4907%2FROCKY-WINNING.png?v=1618308214083"
+        />
+        <p id="result-info">Congratulations!</p>
+        <p id="result-info2">you won the internet!</p>
+      </div>
+    </div>
+    <!-- HÄR TAR WIN DIV SLUT-->
+
+    <!-- om du förlorar!-->
+    <div id="results-loose">
+      <!-- The video -->
+      <video autoplay muted loop id="rocky-result-loose" class="full-video">
+        <source
+          src="https://cdn.glitch.com/d4be2454-678a-4f51-b4bd-b799dd6a4907%2Ftest_loose.mp4?v=1618320881768"
+          type="video/mp4"
+        />
+      </video>
+      <div class="content">
+        <p id="loose-info">You Lost!</p>
+
+        <p class="demo"></p>
+      </div>
+    </div>
+    <!-- HÄR TAR LOOSE DIV SLUT-->
+
+    <audio
+      src="https://cdn.glitch.com/fa23b9c2-b441-4efe-ae9c-8f9c674567b8%2FRocky%20Balboa%20-%20Theme%20Song%20(HD).mp3?v=1617907921464"
+      style="position:fixed; top: -100%;"
+      preload="auto"
+    ></audio>
+
+    <script>
+
+
+      var count = 0;
+      var startTime;
+
+      var b = document.querySelector("button");
+      b.addEventListener("click", change);
+
+      function change() {
+        myFunction();
+        var i = Math.floor(Math.random() * (window.innerWidth - 50)) + 1;
+        var j = Math.floor(Math.random() * (window.innerHeight - 50)) + 1;
+        b.style.left = i + "px";
+        b.style.top = j + "px";
+      }
+
+      function myFunction() {
+        count += 1;
+        if (count == 1) {
+          startTime = Date.now();
+          document.querySelector("audio").play();  
+          var seconds = 20,
+        $seconds = document.querySelector("#countdown");
+      (function countdown() {
+        $seconds.textContent = seconds + (seconds == 1 ? "" : "");
+        if (seconds-- > 0) setTimeout(countdown, 1000);
+      })();
+          
+        } else if (count == 4) {
+          totalTime = (Date.now() - startTime) / 1000;
+
+          if (totalTime < 20) {
+            document.body.classList.add("winning");
+            openWebcam();
+          } else {
+            document.body.classList.add("losing");
+          }
+        }
+        document.getElementById("counter").innerText = count;
+      }
+
+      function openWebcam() {
+        var video = document.querySelector("#webcam");
+
+        if (navigator.mediaDevices.getUserMedia) {
+          navigator.mediaDevices
+            .getUserMedia({ video: true })
+            .then(function(stream) {
+              video.srcObject = stream;
+            })
+            .catch(function(err0r) {
+              console.log("Something went wrong!");
+            });
+        }
+      }
+    </script>
+  </body>
+</html>
