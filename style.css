@@ -27,16 +27,32 @@ overflow-y: hidden; /* gör så att scrollgrejen upp/ner försvinner*/
   justify-content: center;
   align-items: center;
   flex-flow: wrap column;
+  
 }
 #countdown {
-  position: absolute;
+  position: fixed;
   color: red;
-  margin:0;
+  margin-top:0;
+  margin-left:1vw;
   padding: 0;
-  top: 2px;
-  left: 2px;
+  top: 3px;
+  left: 5px;
+  
 }
 
+#info{
+  margin:0;
+  position:fixed;
+  top:30vh;
+  
+  
+}
+
+#info1{
+  margin:0;
+  position:fixed;
+  top:20vh;
+}
 
 #results-win, #results-loose {
   display: none;
@@ -94,6 +110,7 @@ img {
 #loose-info {
   color: red;
   font-size: 30vh;
+  position:fixed;
 }
 
 /*.count {
@@ -130,5 +147,12 @@ button{
   margin:0;
 }
 
+a {
+position:absolute;
+  margin:0;
+  padding:0;
+  left: 1px;
+  
+}
 
 

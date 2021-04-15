@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+  
   <head>
     <title>Your personal training montage</title>
 
@@ -8,6 +9,7 @@
 
     <!-- Man kan skriva sin css inom style nedan-->
     <style></style>
+    <script src="/script.js" defer></script>
   </head>
 
   <body>
@@ -22,14 +24,20 @@
       <!--> FÖR ATT FÅ SAKER ATT LIGGA FRAMFÖR VIDEON! -->
       <div class="content">
         <span id="countdown"></span>
+        <p id="info1">
+    WIN THE INTERNET AND BECOME THE DESTROYER OF POP-UP ADS
+        </p>
         <p id="info">
-          Press <span class="red">x</span> 15 times before the time is up!
+          PRESS <span class="red">X</span> 10 TIMES
         </p>
 
         <p id="counter"></p>
       </div>
 
       <button>x</button>
+        <!-- Nature Webring Logo --->
+    <a href="#" onmouseover="natureWebringInfo();" onmouseout="natureWebringLogo();" onclick="randomWebringSite();"><img id="natureLogo" src="https://www.worldwidewebring.club/2021/embed/art-webring.svg" width="80" alt="Part of the nature webring"></a>
+  
     </div>
     <!-- HÄR TAR DIV GAMEPLAY SLUT!!-->
 
@@ -46,8 +54,8 @@
         <img
           src="https://cdn.glitch.com/d4be2454-678a-4f51-b4bd-b799dd6a4907%2FROCKY-WINNING.png?v=1618308214083"
         />
-        <p id="result-info">Congratulations!</p>
-        <p id="result-info2">you won the internet!</p>
+        <p id="result-info">CONGRATULATIONS!</p>
+        <p id="result-info2">YOU WON THE INTERNET!</p>
       </div>
     </div>
     <!-- HÄR TAR WIN DIV SLUT-->
@@ -57,12 +65,13 @@
       <!-- The video -->
       <video autoplay muted loop id="rocky-result-loose" class="full-video">
         <source
-          src="https://cdn.glitch.com/d4be2454-678a-4f51-b4bd-b799dd6a4907%2Ftest_loose.mp4?v=1618320881768"
+          src="https://cdn.glitch.com/dcdc38ad-131f-481f-ab76-1e9d024a9cbc%2Frocky_background_loose_2.mp4?v=1618516670610"
           type="video/mp4"
         />
       </video>
       <div class="content">
-        <p id="loose-info">You Lost!</p>
+        <p id="loose-info">YOU SUCK</p>
+  
 
         <p class="demo"></p>
       </div>
@@ -104,7 +113,7 @@
         if (seconds-- > 0) setTimeout(countdown, 1000);
       })();
           
-        } else if (count == 4) {
+        } else if (count == 10) {
           totalTime = (Date.now() - startTime) / 1000;
 
           if (totalTime < 20) {
