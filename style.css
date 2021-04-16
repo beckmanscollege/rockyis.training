@@ -147,11 +147,13 @@ button{
   margin:0;
 }
 
-a {
-position:absolute;
+#natureLogo {
   margin:0;
   padding:0;
   left: 1px;
+  top:33%;
+  width:5%;
+  position:fixed;
   
 }
 
